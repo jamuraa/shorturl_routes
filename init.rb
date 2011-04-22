@@ -1,0 +1,2 @@
+
+require 'shorturl_routes'
