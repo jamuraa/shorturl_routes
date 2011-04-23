@@ -28,3 +28,6 @@ ShorturlRoutes uses where and first from Arel, so if your model doesn't support 
 
 ShorturlRoutes uses a hack to get the route working, and therefore doesn't test well.  I'm trying to figure out why this is the case.  If you have some time and know how Rails 3 routing works, take a look at how the tests are failing and let me know.
 
+== Bugs
+
+There are probably a lot of them.  This is my first foray into both the rails routing DSL and creating gems.  If you want to yell at me, feel free to email jamuraa AT gmail DOT com.
