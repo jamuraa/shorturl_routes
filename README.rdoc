@@ -1,3 +1,18 @@
 = ShorturlRoutes
 
-This project rocks and uses MIT-LICENSE.
+ShorturlRoutes enhances the Rails 3 routing DSL by providing the shorturl method.  
+This method makes it dead simple to create routes that are at the root of your nameserver,
+often known as vanity urls.  
+These urls make it much easier for your users to type out the URL, write it down, and transmit them over twitter because they are easy to remember and shorter than the normal http://site/controller/name.
+
+== Usage
+
+If you have for example a model Group, with the attribute name, you can route all of the names to their show pages like this:
+
+  shorturl "/:name", :to => "groups#show", :model => "Group", :attribute => :name
+
+If the object doesn't exist in the database, then it will fail and fall through like a normal routing rule.  This means that you can put them one after the other and the top one takes priority.
+
+  shorturl "/:name", :to => "users#show", :model => "User", :attribute => :name
+  shorturl "/:name", :to => "groups#show", :model => "Group", :attribute => :name
+
