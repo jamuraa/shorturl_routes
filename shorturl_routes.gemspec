@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shorturl_routes}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Janssen"]
@@ -17,8 +17,9 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
+    ".document",
     "Gemfile",
-    "MIT-LICENSE",
+    "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
@@ -30,8 +31,32 @@ Gem::Specification.new do |s|
     "shorturl_routes.gemspec",
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
+    "test/dummy/app/controllers/groups_controller.rb",
+    "test/dummy/app/controllers/posts_controller.rb",
+    "test/dummy/app/controllers/users_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
+    "test/dummy/app/helpers/groups_helper.rb",
+    "test/dummy/app/helpers/posts_helper.rb",
+    "test/dummy/app/helpers/users_helper.rb",
+    "test/dummy/app/models/group.rb",
+    "test/dummy/app/models/post.rb",
+    "test/dummy/app/models/user.rb",
+    "test/dummy/app/views/groups/_form.html.erb",
+    "test/dummy/app/views/groups/edit.html.erb",
+    "test/dummy/app/views/groups/index.html.erb",
+    "test/dummy/app/views/groups/new.html.erb",
+    "test/dummy/app/views/groups/show.html.erb",
     "test/dummy/app/views/layouts/application.html.erb",
+    "test/dummy/app/views/posts/_form.html.erb",
+    "test/dummy/app/views/posts/edit.html.erb",
+    "test/dummy/app/views/posts/index.html.erb",
+    "test/dummy/app/views/posts/new.html.erb",
+    "test/dummy/app/views/posts/show.html.erb",
+    "test/dummy/app/views/users/_form.html.erb",
+    "test/dummy/app/views/users/edit.html.erb",
+    "test/dummy/app/views/users/index.html.erb",
+    "test/dummy/app/views/users/new.html.erb",
+    "test/dummy/app/views/users/show.html.erb",
     "test/dummy/config.ru",
     "test/dummy/config/application.rb",
     "test/dummy/config/boot.rb",
@@ -58,8 +83,10 @@ Gem::Specification.new do |s|
     "test/dummy/public/javascripts/prototype.js",
     "test/dummy/public/javascripts/rails.js",
     "test/dummy/public/stylesheets/.gitkeep",
+    "test/dummy/public/stylesheets/scaffold.css",
     "test/dummy/script/rails",
     "test/integration/navigation_test.rb",
+    "test/integration/routing_works_test.rb",
     "test/shorturl_routes_test.rb",
     "test/support/integration_case.rb",
     "test/test_helper.rb"
@@ -72,11 +99,14 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/controllers/groups_controller.rb",
+    "test/dummy/app/controllers/posts_controller.rb",
     "test/dummy/app/controllers/users_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
     "test/dummy/app/helpers/groups_helper.rb",
+    "test/dummy/app/helpers/posts_helper.rb",
     "test/dummy/app/helpers/users_helper.rb",
     "test/dummy/app/models/group.rb",
+    "test/dummy/app/models/post.rb",
     "test/dummy/app/models/user.rb",
     "test/dummy/config/application.rb",
     "test/dummy/config/boot.rb",
@@ -92,9 +122,10 @@ Gem::Specification.new do |s|
     "test/dummy/config/routes.rb",
     "test/dummy/db/migrate/20110422234808_create_users.rb",
     "test/dummy/db/migrate/20110422234816_create_groups.rb",
+    "test/dummy/db/migrate/20110423003656_create_posts.rb",
     "test/dummy/db/schema.rb",
     "test/integration/navigation_test.rb",
-    "test/route/shorturl_routes_test.rb",
+    "test/integration/routing_works_test.rb",
     "test/shorturl_routes_test.rb",
     "test/support/integration_case.rb",
     "test/test_helper.rb"
