@@ -7,7 +7,11 @@ These urls make it much easier for your users to type out the URL, write it down
 
 == Usage
 
-Just add `gem 'shorturl_routes', :git => git://github.com/jamuraa/shorturl_routes.git'` to your Gemfile and run bundle install to get set up.
+Just add
+  
+  gem 'shorturl_routes', :git => git://github.com/jamuraa/shorturl_routes.git'
+  
+to your Gemfile and run bundle install to get set up.
 
 If you have for example a model Group, with the attribute name, you can route all of the names to their show pages like this:
 
