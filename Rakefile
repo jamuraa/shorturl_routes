@@ -1,29 +1,53 @@
-# encoding: UTF-8
 require 'rubygems'
+require 'bundler'
 begin
-  require 'bundler/setup'
-rescue LoadError
-  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
 end
-
 require 'rake'
-require 'rake/rdoctask'
+
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
+  gem.name = "shorturl_routes"
+  gem.homepage = "http://github.com/jamuraa/shorturl_routes"
+  gem.license = "MIT"
+  gem.summary = %Q{Making shortcuts to your model pages easy}
+  gem.description = %Q{Adds a shorturl route to the routing DSL which allows you to get an alternate route to any model based on an attribute on those models}
+  gem.email = "jamuraa@base0.net"
+  gem.authors = ["Michael Janssen"]
+  # Include your dependencies below. Runtime dependencies are required when using your gem,
+  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
+  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
+  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+end
+Jeweler::RubygemsDotOrgTasks.new
 
 require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/*_test.rb'
+  test.verbose = true
+end
 
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = false
+require 'rcov/rcovtask'
+Rcov::RcovTask.new do |test|
+  test.libs << 'test'
+  test.pattern = 'test/**/*_test.rb'
+  test.verbose = true
 end
 
 task :default => :test
 
-Rake::RDocTask.new(:rdoc) do |rdoc|
+require 'rake/rdoctask'
+Rake::RDocTask.new do |rdoc|
+  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'ShorturlRoutes'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.rdoc')
+  rdoc.title = "shorturl_routes #{version}"
+  rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

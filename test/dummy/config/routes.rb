@@ -1,4 +1,12 @@
 Dummy::Application.routes.draw do
+  resources :posts
+
+  resources :groups
+  resources :users
+
+  shorturl ':name', :to => "users#show", :model => "User", :attribute => :name
+  shorturl ':name', :to => "groups#show", :model => "Group", :attribute => :name
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
