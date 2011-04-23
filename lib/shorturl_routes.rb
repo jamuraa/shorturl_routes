@@ -17,8 +17,8 @@ class ::ActionDispatch::Routing::Mapper::Constraints
     }
 
     l = @constraints.last
-    if l.respond_to?(:matches?)
-      x = l.matches?(*constraint_args(l, req))
+    if l.respond_to?(:call)
+      x = l.call(*constraint_args(l, req))
       env["action_dispatch.request.path_parameters"][:id] = x.id if x.is_a?(ActiveRecord::Base)
     end
 
